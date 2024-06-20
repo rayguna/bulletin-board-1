@@ -82,4 +82,4 @@ Annotated (2): app/models/board.rb, app/models/post.rb
 
 8. Fixed button name in /boards. Fixed title in /posts.
 
-9. 
+9. Review this link for date formating: https://entrision.com/blog/formatting-dates-in-ruby/
