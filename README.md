@@ -110,3 +110,5 @@ Annotated (2): app/models/board.rb, app/models/post.rb
     <%= yield %>
   </body>
 ```
+
+***
