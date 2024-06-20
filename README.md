@@ -83,3 +83,30 @@ Annotated (2): app/models/board.rb, app/models/post.rb
 8. Fixed button name in /boards. Fixed title in /posts.
 
 9. Review this link for date formating: https://entrision.com/blog/formatting-dates-in-ruby/
+
+10. This is a tricky assignment because the scripts that were called in the terminal created default pages that have the incorrect formats and routes. Much works are needed to customize them to match the answer. It may have been easier to start out from sctratch.
+
+11. One issue is that we need to redirect the page back to the boards page after adding a post, but initially the added post is not appended. 
+12. Format dta ysung the function strftime(). Also refer to strftime.net.
+
+```
+<%= a_post.created_at.strftime("%b %e, %Y") %> 
+```
+
+13. (25 min) Validation.
+
+14. Add <%validation%> tag to the body of the layours/application.html.erb to trigger warning, as follows.
+
+```
+  <body>
+    <!--return to the defalt page-->
+    <a href="/">Bulletin Board</a>
+    
+    <hr>
+
+    <div><%=notice%><div>
+    <div><%=alert%><div>
+    
+    <%= yield %>
+  </body>
+```

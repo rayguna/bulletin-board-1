@@ -88,7 +88,10 @@
 
   </tr>
 
-  <% Post.all.each do |a_post| %>
+  <!--Display the matching posts-->
+  <%matching_posts = Post.where(:board_id => @the_board.id).order({:created_at=>:desc})%>
+
+  <%matching_posts.each do |a_post|%>
   <tr>
 
     <td>
@@ -100,7 +103,7 @@
     </td>
 
     <td>
-      <%= a_post.created_at %> 
+      <%= a_post.created_at.strftime("%b %e, %Y") %> 
     </td>
 
     <td>
