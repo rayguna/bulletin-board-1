@@ -69,3 +69,7 @@ Annotated (2): app/models/board.rb, app/models/post.rb
 (4 min)
 
 4. Navigating to https://musical-zebra-g54j6jv7pwjfvjr5-3000.app.github.dev/posts and https://musical-zebra-g54j6jv7pwjfvjr5-3000.app.github.dev/boards show the built forms.
+
+(7 min) Begin building the interface.
+
+5. Populate tables with `rake sample_data`.
