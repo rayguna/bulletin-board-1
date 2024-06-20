@@ -77,3 +77,9 @@ Annotated (2): app/models/board.rb, app/models/post.rb
 5. Populate tables with `rake sample_data`.
 
 6. (10 min) Start building the html pages.
+
+7. Added the navigation section.
+
+8. Fixed button name in /boards. Fixed title in /posts.
+
+9. 

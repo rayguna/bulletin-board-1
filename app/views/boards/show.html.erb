@@ -1,22 +1,10 @@
 <div>
   <div>
     <h1>
-      Board #<%= @the_board.id %> details
+      <%= @the_board.name %>
     </h1>
 
-    <div>
-      <div>
-        <a href="/boards">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_board/<%= @the_board.id %>">
-          Delete board
-        </a>
-      </div>
-    </div>
+  <hr>
 
     <dl>
       <dt>
@@ -25,47 +13,125 @@
       <dd>
         <%= @the_board.name %>
       </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_board.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_board.updated_at) %> ago
-      </dd>
     </dl>
+
   </div>
 </div>
 
 <hr>
 
+<form action="/insert_post" method="post">
+  <div>
+    <label for="title_box">
+      Title
+    </label>
+
+    <input type="text" id="title_box" name="query_title">
+  </div>
+
+  <div>
+    <label for="body_box">
+      Body
+    </label>
+
+    <textarea id="body_box" name="query_body" rows="3"></textarea>
+  </div>
+
+  <div>
+    <label for="expires_on_box">
+      Expires on
+    </label>
+
+    <input type="date" id="expires_on_box" name="query_expires_on">
+  </div>
+
+  <input type="hidden" id="board_id_box" name="query_board_id" value="33150">
+
+  <button>
+    Add post
+  </button>
+</form>
+
+
+<hr>
 
 <div>
   <div>
     <h2>
-      Edit board
+      Active posts
     </h2>
 
-    <form action="/modify_board/<%= @the_board.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_board.name %>">
-      </div>
-
-      <button>
-        Update board
-      </button>
-    </form>
   </div>
 </div>
 
-<hr>
+<table border="1">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Body
+    </th>
+
+    <th>
+      Expires on
+    </th>
+
+    <th>
+      Board
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% Post.all.each do |a_post| %>
+  <tr>
+    <td>
+      <%= a_post.id %>
+    </td>
+
+    <td>
+      <%= a_post.title %>
+    </td>
+
+    <td>
+      <%= a_post.body %>
+    </td>
+
+    <td>
+      <%= a_post.expires_on %>
+    </td>
+
+    <td>
+      <%= a_post.board_id %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(a_post.created_at) %> ago
+    </td>
+    <td>
+      <%= time_ago_in_words(a_post.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/posts/<%= a_post.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>
